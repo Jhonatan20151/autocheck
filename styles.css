@@ -1,0 +1,373 @@
+/* =========================================================
+   AutoChek – Estilos (CSS3 puro, sin JavaScript)
+   Paleta oficial:
+     --azul  #163a7a  → texto, botones, encabezado (contraste 10.9:1 sobre blanco)
+     --menta #416fbc  → detalles y foco          (contraste 5.0:1 sobre blanco)
+   Todos los pares texto/fondo cumplen WCAG 2.1 AA (≥ 4.5:1).
+   ========================================================= */
+
+:root {
+  --azul: #163a7a;
+  --azul-oscuro: #0f2a5a;
+  --menta: #416fbc;
+  --blanco: #ffffff;
+  --fondo-suave: #f4f7fc;
+  --texto: #1a1f2b;          /* 16:1 sobre blanco */
+  --texto-suave: #3f4756;    /* 9:1 sobre blanco  */
+  --borde: #c5cfe0;
+
+  --alerta-texto: #7a4a00;   /* 7:1 sobre su fondo */
+  --alerta-fondo: #fff4e0;
+  --ok-texto: #1b5e20;       /* 7:1 sobre su fondo */
+  --ok-fondo: #e8f5e9;
+
+  --tactil: 48px;            /* tamaño mínimo de áreas táctiles */
+  --foco: 3px solid var(--menta);
+  --radio: 10px;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;           /* respeta el tamaño elegido por el usuario */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.125rem;       /* 18px: lectura cómoda */
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--fondo-suave);
+}
+
+h1, h2, h3 {
+  color: var(--azul);
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+}
+
+p {
+  margin: 0 0 0.75rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--azul);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---------- Foco visible (navegación por teclado) ---------- */
+a:focus,
+button:focus,
+input:focus {
+  outline: var(--foco);      /* 3px */
+  outline-offset: 3px;
+}
+
+/* ---------- Enlace "Saltar al contenido" ---------- */
+.saltar {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tactil);
+  padding: 0 1rem;
+  background: var(--azul);
+  color: var(--blanco);
+  font-weight: 700;
+  border-radius: var(--radio);
+}
+
+.saltar:focus {
+  top: 1rem;
+  outline-color: var(--azul-oscuro);
+}
+
+/* ---------- HEADER ---------- */
+.encabezado {
+  background: var(--blanco);
+  border-bottom: 4px solid var(--menta);
+  padding: 1rem;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: var(--tactil);
+  color: var(--azul);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.logo__icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--azul);
+  color: var(--blanco);
+  font-size: 1rem;
+}
+
+/* ---------- NAV ---------- */
+.nav {
+  margin-top: 0.75rem;
+}
+
+.nav__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.nav__lista a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tactil);
+  padding: 0 1rem;
+  border: 2px solid var(--azul);
+  border-radius: var(--radio);
+  color: var(--azul);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav__lista a:hover {
+  background: var(--fondo-suave);
+}
+
+.nav__lista a[aria-current="page"] {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+/* ---------- MAIN ---------- */
+.principal {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.principal:focus {
+  outline: none;             /* solo recibe foco al usar "Saltar al contenido" */
+}
+
+/* ---------- SECTION ---------- */
+.seccion {
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-top: 6px solid var(--azul);
+  border-radius: var(--radio);
+  padding: 1.25rem;
+}
+
+.seccion__titulo {
+  font-size: 1.5rem;
+}
+
+.seccion__texto {
+  color: var(--texto-suave);
+}
+
+/* Buscador */
+.buscador__etiqueta {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.buscador__fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.buscador__campo {
+  flex: 1 1 220px;
+  min-height: var(--tactil);
+  padding: 0 1rem;
+  font: inherit;
+  color: var(--texto);
+  background: var(--blanco);
+  border: 2px solid var(--texto-suave);   /* borde con contraste ≥ 3:1 */
+  border-radius: var(--radio);
+}
+
+.buscador__campo::placeholder {
+  color: #5c6472;            /* 6:1 sobre blanco */
+}
+
+.buscador__ayuda {
+  font-size: 1rem;
+  color: var(--texto-suave);
+  margin-top: 0.5rem;
+}
+
+/* Botones */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tactil);
+  min-width: var(--tactil);
+  padding: 0 1.5rem;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radio);
+  border: 2px solid var(--azul);
+  cursor: pointer;
+}
+
+.boton--principal {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+.boton--principal:hover {
+  background: var(--azul-oscuro);
+}
+
+.boton--secundario {
+  background: var(--blanco);
+  color: var(--azul);
+}
+
+.boton--secundario:hover {
+  background: var(--fondo-suave);
+}
+
+/* ---------- ARTICLE (tarjetas del reporte) ---------- */
+.tarjeta {
+  border: 2px solid var(--borde);
+  border-left: 6px solid var(--menta);
+  border-radius: var(--radio);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.tarjeta__titulo {
+  font-size: 1.25rem;
+}
+
+.tarjeta__dato strong {
+  color: var(--azul);
+}
+
+.estado {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.estado--alerta {
+  color: var(--alerta-texto);
+  background: var(--alerta-fondo);
+}
+
+.estado--ok {
+  color: var(--ok-texto);
+  background: var(--ok-fondo);
+}
+
+.enlace-tarjeta {
+  display: flex;
+  align-items: center;
+  min-height: var(--tactil);
+  font-weight: 600;
+}
+
+/* Acciones de inspección */
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ---------- FOOTER ---------- */
+.pie {
+  background: var(--azul);
+  color: var(--blanco);
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+
+.pie__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+}
+
+.pie__lista a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tactil);
+  padding: 0 0.5rem;
+  color: var(--blanco);
+}
+
+/* Sobre el fondo azul el foco menta no contrasta: se usa blanco */
+.pie a:focus {
+  outline-color: var(--blanco);
+}
+
+.pie__copy {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+/* ---------- Pantallas grandes: tarjetas en 3 columnas ---------- */
+@media (min-width: 900px) {
+  #reporte {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 1rem;
+  }
+
+  #reporte .seccion__titulo,
+  #reporte .seccion__texto {
+    grid-column: 1 / -1;
+  }
+
+  .encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  .nav {
+    margin-top: 0;
+  }
+}
+
+/* ---------- Usuarios que prefieren menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
