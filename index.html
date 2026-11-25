@@ -8,18 +8,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Enlace para saltar directo al contenido (usuarios de teclado y lectores de pantalla) -->
   <a class="saltar" href="#contenido">Saltar al contenido principal</a>
-
-  <!-- ===================== HEADER ===================== -->
   <header class="encabezado">
     <a class="logo" href="index.html" aria-label="AutoChek, ir al inicio">
       <span class="logo__icono" aria-hidden="true">AC</span>
       <span class="logo__texto">AutoChek</span>
     </a>
-
-    <!-- NAV -->
     <nav class="nav" aria-label="Navegación principal">
       <ul class="nav__lista">
         <li><a href="#buscar" aria-current="page">Revisar</a></li>
@@ -29,11 +23,7 @@
       </ul>
     </nav>
   </header>
-
-  <!-- ===================== MAIN ===================== -->
   <main id="contenido" class="principal" tabindex="-1">
-
-    <!-- SECTION 1: Buscar por placa o VIN -->
     <section id="buscar" class="seccion" aria-labelledby="titulo-buscar">
       <h1 id="titulo-buscar" class="seccion__titulo">Buscar por placa o VIN</h1>
       <p class="seccion__texto">Ingresa los datos del vehículo para ver su reporte completo.</p>
@@ -55,13 +45,9 @@
         <p id="ayuda-placa" class="buscador__ayuda">La placa tiene 3 letras y 4 números. El VIN tiene 17 caracteres.</p>
       </form>
     </section>
-
-    <!-- SECTION 2: Reporte del vehículo -->
     <section id="reporte" class="seccion" aria-labelledby="titulo-reporte">
       <h2 id="titulo-reporte" class="seccion__titulo">Reporte del vehículo</h2>
       <p class="seccion__texto">Chevrolet Aveo 2016 · Placa PBX-1234</p>
-
-      <!-- ARTICLE 1: Estado legal -->
       <article class="tarjeta" aria-labelledby="titulo-legal">
         <h3 id="titulo-legal" class="tarjeta__titulo">Estado legal</h3>
         <p class="tarjeta__dato">
@@ -72,8 +58,6 @@
         </p>
         <a class="enlace-tarjeta" href="#reporte">Ver detalle del estado legal</a>
       </article>
-
-      <!-- ARTICLE 2: Historial -->
       <article class="tarjeta" aria-labelledby="titulo-historial">
         <h3 id="titulo-historial" class="tarjeta__titulo">Historial</h3>
         <p class="tarjeta__dato">
@@ -84,8 +68,6 @@
         </p>
         <a class="enlace-tarjeta" href="#reporte">Ver historial completo</a>
       </article>
-
-      <!-- ARTICLE 3: Precio estimado -->
       <article class="tarjeta" aria-labelledby="titulo-precio">
         <h3 id="titulo-precio" class="tarjeta__titulo">Precio estimado</h3>
         <p class="tarjeta__dato">
@@ -97,8 +79,6 @@
         <a class="enlace-tarjeta" href="#reporte">Ver cómo se calcula</a>
       </article>
     </section>
-
-    <!-- SECTION 3: Inspección física -->
     <section id="inspeccion" class="seccion" aria-labelledby="titulo-inspeccion">
       <h2 id="titulo-inspeccion" class="seccion__titulo">Inspección física</h2>
       <p class="seccion__texto">Revisa el auto en persona con nuestro checklist o agenda un mecánico certificado.</p>
@@ -110,8 +90,6 @@
     </section>
 
   </main>
-
-  <!-- ===================== FOOTER ===================== -->
   <footer class="pie">
     <ul class="pie__lista">
       <li><a href="#quienes-somos">Quiénes somos</a></li>
